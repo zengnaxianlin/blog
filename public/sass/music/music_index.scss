@@ -1,0 +1,585 @@
+@charset "UTF-8";
+/*
+	豆瓣音乐首页样式
+ */
+
+/* 组件及公共样式 */
+.colors1{
+	border-top: 1px solid #ffac13!important;
+	}
+.colors2{
+	border-top: 1px solid #83c44e!important;
+}
+.colors3{
+	border-top: 1px solid #2196f3!important;
+}
+.colors4{
+	border-top: 1px solid #e53935!important;
+}
+.colors5{
+	border-top: 1px solid #00c0a5!important;
+}
+$h4Size: 16px;
+$aHoverColor: #83c44e;
+@mixin border-radius($redius:3px){
+	-webkit-border-radius: $redius;
+	-moz-border-radius: $redius;
+	-o-border-radius: $redius;
+	-ms-border-radius: $redius;
+	border-radius: $redius;
+}
+@mixin ellipsis{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+}
+h4{font-size: $h4Size;}
+h5{
+	font-size: 14px;
+	color:#138A64;
+	cursor:pointer;
+	@include ellipsis;
+}
+.row{margin:0;}
+.col-md-4{
+	margin-left: 30px;
+}
+/* 分类头部标题 公共样式 */
+.class-top{
+	h4{
+		font-size: 14px;
+		color:#222;
+		line-height: 25px;
+		display: inline-block;
+		margin-top:0;
+	}
+	.more{
+		float: right;
+		color:#fff;
+		padding: 8px 10px;
+		margin-bottom: 6px;
+		background: #83c44e;
+		font:12px Arial,Helvetica,sans-serif;
+		cursor:pointer;
+		text-decoration: none;
+	}
+	span{
+		display: inline-block;
+	}
+	a{
+		font-size: 12px;
+		cursor:pointer;
+		text-decoration: none;
+		color:#999;
+	}
+	.more{
+		&:hover{
+			background-color: #3D963E;
+			color:#fff;
+		}
+	}
+	.on{
+		a{color: $aHoverColor;}
+	}
+	> ul{
+		list-style: none;
+		display: inline-block;
+		padding:0;
+		li{
+			display: inline-block;
+			&:before{
+				content: '|';
+				color:#222;
+				padding:0 3px;
+			}
+			&:first-child:before{
+				content: '';
+				color:transparent;
+			}
+			a:hover{
+				color: $aHoverColor;
+				text-decoration:underline;
+			}
+		}
+	}
+}
+.screen{
+	.panel{
+		border:none;
+		overflow: hidden;
+	}
+	.screen-header{
+		background-color:#fff;
+	}
+}
+.screen-body{
+	background-color: #F5F7F8;
+	border-top: 2px solid #83c44e;
+	.thumbnail{
+		background-color: #fff;
+		width:18%;
+		height:auto;
+		border:none;
+		margin: 1%;
+		padding: 20px 30px;
+		float: left;
+		img{
+			height:auto;
+		}
+		p{
+			font-size: 12px;
+			color:#999;
+		}
+	}
+}
+.screen-header{
+	position: relative;
+	padding:0;
+	h4{
+		display:inline-block;
+		span{
+			font-size:15px;
+			margin-left:20px;
+			cursor:pointer;
+		}
+	}
+}
+
+
+/* 顶部轮播图样式 */
+.gallery-frames{
+	.panel-default{
+		position: relative;
+		.slide-prev,.slide-next{
+			position: absolute;
+			border:none;
+			outline: none;
+			top:50%;
+			background:url(/libs/images/music/banner_arrow.png);
+			width:36px;
+			height:51px;
+			&:hover{
+				background:url(/libs/images/music/banner_arrow.png);
+			}
+		}
+		.slide-prev{
+			background-position: 0 51px;
+			left:0;
+			margin-top: -25px;
+		}
+		.slide-prev:hover{
+			background-position: 0 122px;
+			left:0;
+			margin-top: -25px;
+		}
+		.slide-next{
+			background-position: 36px 51px;
+			right:0;
+			margin-top: -25px;
+		}
+		.slide-next:hover{
+			background-position: 36px 122px;
+			right:0;
+			margin-top: -25px;
+		}
+	}
+	.slide-content{
+		list-style:none;
+		padding:0;
+		position: relative;
+		transition: transform 500ms ease;
+	}
+	.slide-dots{
+		list-style:none;
+		position: absolute;
+		width: 100%;
+		bottom: 5px;
+		text-align: center;
+		bottom:0;
+		li{
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			margin: 0 5px;
+			@include border-radius(50%);
+			background-color: #f8f9f9;
+			cursor:pointer;
+			color:transparent;
+			&.slide-active{
+				background-color: #83c44e;
+			}
+		}
+	}
+	.slide-item{
+		float:left;
+		img{
+			float:left;
+			height:450px;
+		}
+	}
+}
+
+
+/* 顶部右侧广告列表样式 */
+.right-advertisement{
+	text-align: center;
+	// a{
+	// 	width: 100%
+	// }
+	img{
+		margin-top: -10px;
+	}
+}
+
+
+/* 中间广告样式 */
+.screen{
+	.left-advertisement{
+		margin:20px 0;
+		img{width:100%;}
+	}
+}
+
+/* 编辑推荐样式  */
+.editor-featured{
+	.slide-tip{
+		position: absolute;
+		top: 10px;
+		right: 0;
+		height: 20px;
+		.ui-side-max{
+			margin-right: 10px;
+		}
+		.glyphicon{
+			cursor: pointer;
+		}
+		.slide-next,.slide-prev{
+			border: none;
+			background: url(/libs/images/music/editor_arrow.png) no-repeat;
+			width: 20px;
+			height: 20px;
+			opacity: 0.8;
+			outline: none;
+		}
+		.slide-next{
+			background-position: -28px 0;
+		}
+		.slide-prev:hover,.slide-next:hover{
+			opacity: 1;
+		}
+	}
+	.screen-body{
+		height: auto;
+		position: relative;
+		padding: 15px 0;
+		background-color: #f5f7f8;
+	}
+	.thumbnail{
+		overflow: hidden;
+		border: none;
+		height: auto;
+		float: left;
+		background-color:#fff;
+		margin: 10px;
+		padding: 20px;
+		transition: all .2s linear;
+		&:hover{
+			box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+			transform: scale(1.025);
+			.caption{
+				a{
+					background-color:#83c44e;
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+		}
+		a{
+			img{
+				width: 100%;
+				height: 180px;
+			}
+		}
+		.caption {
+			text-align: center;
+			h5 {
+				a {
+					color: #83c44e;
+					padding: 6px;
+					display: inline-block;	
+				}
+			}
+			p{
+				font-size: 12px;
+				color: #999;
+			}
+			div{
+				font-size: 12px;
+				height: 60px;
+				overflow: hidden;
+			}
+		}
+	}
+}
+
+
+/* 新碟榜样式 */
+.new-albums {
+	.screen-body{
+		border-top: 2px solid #83c44e;
+	}
+	.thumbnail{
+		position: relative;
+       	border: 1px solid #eee;
+       	transition: all .5s ease-out;
+       	&:hover{
+			.caption{
+				a{
+					background-color: #83c44e;
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+       	}
+       	.left,.top,.right,.bottom{
+           transition: all 0.5s ease-out;
+           width:1px;
+           height:1px;
+           position: absolute;
+           z-index: 99;
+       }
+       .left,.top,{
+           left:0px;
+           top:0px;
+       }
+       .right,.bottom{
+           bottom:0px;
+           right: 0px;
+       }
+       &:hover .left,&:hover .top,&:hover .left,&:hover .right,&:hover .bottom{
+           transition: all 0.5s ease-out;
+           width:100%;
+           height:100%;
+           background: #62B320;
+       }
+       &:hover .left{
+           width:1px;
+       }
+       &:hover .top{
+           height:1px;
+       }
+       &:hover .right{
+           width:1px;
+       }
+       &:hover .bottom{
+           height:1px;
+       }
+	}
+	a {
+		color: #666;
+		img{
+			width: 60%;
+			border-radius: 50%;
+			height: 100px!important;
+		}
+	}
+	.caption {
+		text-align: center;
+		h5 {
+			a {
+				color: #83c44e;
+				display:inline-block;
+				padding: 6px;
+			}
+		}
+		p{
+			font-size: 12px;
+			color: #999;
+		}
+		div{
+			font-size: 12px;
+			height: 100px;
+			overflow: hidden;
+		}
+	}
+}
+
+/* 热门音乐人分类样式 */
+.tag-block{
+	margin-top: 10px;
+	td{
+		width:50%;
+		border-bottom: 1px solid #ddd;
+		a{
+			color:#138a64;
+			font-size: 14px;
+		}
+		&:nth-child(odd){
+			border-right:1px solid #ddd;
+		}
+	}
+}
+
+
+/* 本周单曲榜样式  */
+.play-button{
+	color: #fff;
+	border: 0;
+	border-radius: 50%;
+	font-size: 40px;
+	text-align: center;
+	cursor: pointer;
+	width: 100px;
+	height: 100px;
+	background: #83c44e;
+	display: none;
+	&:hover{
+		text-decoration: none;
+		color:#fff;
+	}
+	span{padding-left: 5px;}
+}
+
+
+/* 豆瓣音乐250样式 */
+.billboard{
+	padding-bottom: 30px;
+	.billboard-hd{
+		border-bottom: 2px solid #83c44e;
+		height:30px;
+		line-height: 30px;
+		h4{
+			margin: 0;
+			display: inline-block;
+		}
+		.more{
+			&:hover{
+				background-color: #3D963E;
+				color: #fff;
+			}
+		}
+	}
+	.billboard-bd{
+		margin-top: 10px;
+	}
+	.thumbnail{
+		width: 18%;
+		border: none;
+		float: left;
+		height: 270px;
+		margin: 0;
+		text-align: center;
+		background: #fafafa;
+		margin: 1%;
+		padding-top: 20px;
+		border: 1px solid rgba(153, 153, 153, 0.11);
+		position: relative;
+		transition: all 1s;
+		overflow: hidden;
+		&:hover{
+			//transform: scale(1.1);
+			.opacitybox{
+				top: 0%;
+			}
+			.play-button{
+				display: block;
+				//background: #ff6700;
+			}
+		}
+		.opacitybox{
+			transition: all .2s;
+			position: absolute;
+			background: #000;
+			left: 0;
+			top: 100%;
+			width: 100%;
+			height: 100%;
+			opacity: .5;
+		}
+		a.playradio{
+				display: inline-block;
+				position: absolute;
+				left: 30%;
+				top: 28%;
+			}
+		a{
+			text-decoration: none;
+		}
+		img{
+			width: 190px;
+			height: 200px;
+		}
+		h5{
+			font-size: 12px;
+			text-align: center;
+			display: inline-block;
+		}
+		h5:hover{
+			background-color: #138A64;
+			color: #fff;
+		}
+	}
+}
+
+
+/* 近期热门歌单样式 */
+#hotProgrammes{
+	margin-top: 20px;
+	.thumbnail{
+		position: relative;
+		width:31%;
+		height:auto;
+		padding:0 10px 0 0;
+		transition: all 1.5s linear;
+	}
+	.inner{
+		background-color:#fff;
+		border:1px solid #eee;
+		padding:20px 30px 46px 150px;
+		font-size: 12px;
+		color:#666;
+		line-height:18px;
+		&:hover{
+			h5{
+				a{
+					background-color: #83c44e;
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+		}
+		h5{
+			margin-top:0;
+			a {
+				color: #83c44e;
+				display: inline-block;
+				padding: 6px;
+			}
+		}
+		img{
+			width:120px;
+			position:absolute;
+			top:16px;
+			left:14px;
+		}
+		p{
+			font-size: 12px;
+			color:#666;
+			line-height:18px;
+			margin-bottom: 10px;
+			@include ellipsis;
+		}
+	}
+}
+
+
+/* 底部样式 */
+.footer-img{
+	margin: 60px 0 20px;
+	img{
+		margin:0 auto;
+		display:block;
+		width: 100%;
+		height: 90px;
+	}
+}

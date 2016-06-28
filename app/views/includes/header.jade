@@ -1,0 +1,129 @@
+.nav-top.navbar-fixed-top
+  .container
+    ul.navbar-header.clearfix
+      li.lilogo
+        .logo
+          a(href="/")
+            img(src="/libs/images/includes/logo.jpg" style="width:40px;margin-top:-2px")
+      li.linav
+        a.navbar-brand.padding(href="/") 文章
+        if user && user.role > 10
+          ul.adminpost.clearfix
+            li: a(href="/admin/post/new") 后台录入页
+            li: a(href="/admin/post/list") 列表页
+            li: a(href="/admin/post/postCategory/new") 分类录入页
+            li: a(href="/admin/post/postCategory/list") 分类列表页
+            //li: a(href="/admin/post/postprogramme/list") 热门榜单列表页
+      li.linav
+        a.navbar-brand.padding(href="/movieIndex") 电影
+        if user && user.role > 10
+          ul.adminmovie.clearfix
+            li: a(href="/admin/movie/new") 后台录入页
+            li: a(href="/admin/movie/list") 列表页
+            li: a(href="/admin/movie/movieCategory/new") 分类录入页
+            li: a(href="/admin/movie/movieCategory/list") 分类列表页
+            //li: a(href="/admin/movie/city/new") 电影院录入页
+            //li: a(href="/admin/movie/city/list") 电影院列表页
+      li.linav 
+        a.navbar-brand.padding(href="/musicIndex") 音乐
+        if user && user.role > 10
+          ul.adminmusic.clearfix
+            li: a(href="/admin/music/new") 后台录入页
+            li: a(href="/admin/music/list") 列表页
+            li: a(href="/admin/music/musicCategory/new") 分类录入页
+            li: a(href="/admin/music/musicCategory/list") 分类列表页
+            li: a(href="/admin/music/programme/list") 热门榜单列表页
+      if user && user.role > 10
+        li.linav 
+          a.navbar-brand.padding(href="/admin/user/list") 用户
+          ul.adminuser.clearfix         
+            li: a(href="/admin/user/list") 列表页
+    if user
+      p.navbar-text.navbar-right
+        a: span 欢迎您&nbsp;:&nbsp;&nbsp;#{user.name}
+        span &nbsp;|&nbsp;
+        a.navbar-link(href="/logout") 退出
+    else
+      p.navbar-text.navbar-right#sign
+        a.navbar-link(href="#" data-toggle="modal" data-target="#signinModal") 登录
+        span &nbsp;|&nbsp;
+        a.navbar-link(href="#" data-toggle="modal" data-target="#signupModal") 注册
+#signupModal.modal.fade(role="dialog" aria-labelledby="注册" tabindex="-1")
+  .modal-dialog.sign-form
+    .modal-content
+      form#signupForm(method="POST" action="/user/signup")
+        .modal-header 注册
+        .modal-body.clearfix
+          .form-group.clearfix
+            label(for="signupName" class="tip") 用户名
+            input#signupName.form-control(name="name" type="text" placeholder="账号")
+            span.glyphicon.glyphicon-remove-sign.form-clear(aria-hidden="true")
+            label#signupName-error.error(for="signupName" style="display:none")
+          .form-group.clearfix
+            label(for="signupPassword" class="tip") 密码
+            input#signupPassword.form-control(name="password" type="password" placeholder="密码")
+            span.glyphicon.glyphicon-remove-sign.form-clear(aria-hidden="true")
+            label#signupPassword-error.error(for="signupPassword" style="display:none")
+          .form-group.clearfix
+            label(for="signupConfirmPassword" class="tip") 确认密码
+            input#signupConfirmPassword.form-control(name="confirm-password" type="password" placeholder="确认密码")
+            span.glyphicon.glyphicon-remove-sign.form-clear(aria-hidden="true")
+            label#signupConfirmPassword-error.error(for="signupConfirmPassword" style="display:none")
+          .form-group.clearfix
+            label(for="signupCaptcha" class="tip") 验证码
+            input#signupCaptcha.form-control.form-captcha(name="captcha" type="text" placeholder="输入验证码")
+            span.glyphicon.glyphicon-remove-sign.form-clear.form-captcha-clear(aria-hidden="true")
+            div.captcha-show
+            p.glyphicon.glyphicon-repeat.captcha-repeat 换一张?
+            label#signupCaptcha-error.error(for="signupCaptcha" style="display:none")
+        .modal-footer
+          //button.btn.btn-default(type="button" data-dismiss="modal") 关闭
+          button.btn.btn-success(type="submit") 注册
+#signinModal.modal.fade(role="dialog" aria-labelledby="登录豆瓣电影" tabindex="-1")
+  .modal-dialog.sign-form
+    .modal-content
+      form#signinForm(method="GET" action="/user/signin")
+        .modal-header 登录博客
+        .modal-body.clearfix
+          .form-group.clearfix
+            label(for="signinName" class="tip") 用户名
+            input#signinName.form-control(name="name" type="text" placeholder="账号")
+            span.glyphicon.glyphicon-remove-sign.form-clear(aria-hidden="true")
+            label#signinName-error.error(for="signinName" style="display:none")
+          .form-group.clearfix
+            label(for="signinPassword" class="tip") 密码
+            input#signinPassword.form-control(name="password" type="password"  placeholder="密码")
+            span.glyphicon.glyphicon-remove-sign.form-clear(aria-hidden="true")
+            label#signinPassword-error.error(for="signinPassword" style="display:none")
+          .form-group.clearfix
+            label(for="signinCaptcha" class="tip") 验证码
+            input#signinCaptcha.form-control.form-captcha(name="captcha" type="text" placeholder="输入验证码")
+            span.glyphicon.glyphicon-remove-sign.form-clear.form-captcha-clear(aria-hidden="true")
+            div.captcha-show
+            p.glyphicon.glyphicon-repeat.captcha-repeat 换一张?
+            label#signinCaptcha-error.error(for="signinCaptcha" style="display:none")
+        .modal-footer
+          //button.btn.btn-default(type="button" data-dismiss="modal") 关闭
+          button.btn.btn-success(type="submit") 登录
+.nav
+  .container
+    .nav-search
+      if logo == 'movie'
+        - var logoName = '电影'
+      else if logo == 'music'
+        - var logoName = '音乐'
+      else if logo == 'post'
+        - var logoName = '文章'
+      else
+        - var logoName = '用户'
+      form(method='GET' action='/#{logo}/results')
+        .input-group.clearfix
+          input.form-control(type='text' name='q' placeholder="#{logoName}搜索")
+          span.input-group-btn
+            button(type='submit').btn.btn-default
+              span.glyphicon.glyphicon-search
+    //.nav-bread
+      //strong #{logoName} 
+      //span >#{title}
+  
+  

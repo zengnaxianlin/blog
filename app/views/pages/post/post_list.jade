@@ -1,0 +1,39 @@
+extends ../../includes/layout
+block link
+  link(href="/libs/css/include/list.min.css",rel="stylesheet")
+block content
+  .container.bgfff
+    .row
+      table.table.table-hover.table-bordered
+        thead
+          tr
+            th 文章类别
+            th 文章标题
+            th 作者
+            th 评分
+            th 发行时间
+            th pv
+            th 查看
+            th 修改
+            th 删除
+        tbody
+          each item in posts
+            tr(class="item-id-#{item._id}")
+              if item.postCategory
+                td #{item.postCategory.name}
+              else
+                td #{item.postCategory}
+              td #{item.title}
+              td #{item.poster}
+              td #{item.rating}
+              td #{moment(item.meta.updateAt).format('MM/DD/YYYY')}
+              td #{item.pv}
+              td: a(target="_blank", href="/post/#{item._id}" class="look") 查看
+              td: a(target="_blank", href="/admin/post/update/#{item._id}") 修改
+              td
+                button.btn.btn-danger.postDel(type="button", data-id="#{item._id}") 删除
+      div(style="margin: 0 auto;text-align: center;")
+        ul.pagination#page(data-currentPage = currentPage data-totalPage = totalPage)
+  script(src="/libs/scripts/js/include/page.min.js")
+  script(src="/libs/scripts/js/post/post_list.min.js")
+  script(src="/libs/scripts/js/post/post_admin.min.js")

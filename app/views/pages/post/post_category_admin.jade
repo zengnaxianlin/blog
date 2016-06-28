@@ -1,0 +1,13 @@
+extends ../../includes/layout
+
+block content
+  .container.bgfff
+    .row
+      form.form-horizontal(method="post" action="/admin/post/postCategory/new")
+        .form-group
+          label.col-sm-3.control-label(for="inputPostCategory") 文章分类
+          .col-sm-7
+            input#inputPostCategory.form-control(type="text" name="postCategory[name]" value=postCategory.name)
+        .form-group
+          .col-sm-offset-3.col-sm-7
+            button.btn.btn-default(type="submit") 录入

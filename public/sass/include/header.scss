@@ -1,0 +1,327 @@
+@charset "UTF-8";
+/* 顶部导航条样式 */
+body{background: #fff;}
+.hide {
+    display: none;
+}
+.bgfff{/* background:#f3f3f4; */padding: 30px 15px;margin-bottom: 30px;}
+.row{margin-right: 0; margin-left:　0;}
+textarea,select,input{
+  border-radius: 0!important;
+  &:focus{
+      border-color: #83c44e!important;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #C5D6B7;
+    }
+}
+ul,li{list-style: none;}
+.input-group-btn {                  // 去除顶栏搜索按钮默认样式
+  width: auto;
+}
+.nav-top{
+  background-color: #545652;
+  height: 40px;
+  z-index: 1060;
+  .navbar-header{
+    float: left;
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 0;
+    width: 40%;
+    .lilogo{
+      float: left;
+      a{
+        padding: 0;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    li.linav{
+      line-height: 40px;
+      list-style: none;
+      color: #d5d5d5;
+      font-size: 16px;
+      height: 40px;
+      position: relative;
+      float: left;
+      a.navbar-brand{
+        display:inline-block;
+        width: 100%;
+        height: 100%;
+        padding: 0 50px;
+
+      }
+      a.navbar-brand.padding{
+        padding: 0 20px;
+      }
+      &:hover{
+        cursor: pointer;
+        background: #83c44e;
+        a.navbar-brand{
+          color: #fff;
+          font-weight: bold;
+        }
+      }
+      .adminpost,.adminmovie,.adminmusic,.adminuser{
+          padding-left: 0px;
+          list-style: none;
+          position: absolute;
+          left: 0;
+          top: 40px;
+          background: #545652;
+          display: none;
+          width: 100%;
+          text-align: center;
+          li{
+            a{
+              display: inline-block;
+              width: 100%;
+              height: 100%;
+            }
+            &:hover{
+              background: #83c44e;
+              a{
+                color: #fff;
+                font-weight: bold;
+              }
+            }
+        }
+        }
+
+    }
+}
+
+  .navbar-text{margin-top: 0;float: right;}
+  a{
+	  color: #d5d5d5;
+	  font: 14px Helvetica,Arial,sans-serif;
+	  padding: 0 10px;
+	  line-height: 40px;
+  	&:hover{
+		  color: #fff;
+		  text-decoration: none;
+  	}
+  }
+  span{
+  	color: #d5d5d5;
+	  font: 12px Helvetica,Arial,sans-serif;
+	  padding: 0;
+	  line-height: 28px;
+  }
+}
+
+.navbar-right{
+  margin: 0;
+}
+
+/* 登陆表单样式 */
+.sign-form{
+  width: 42%;
+  .modal-content{
+	  //background-color: #5a5a5a;
+	  color: #999;
+    border-radius: 0;
+  }
+  .modal-header{
+  	font-size: 18px;
+  	color: #fff;
+  }
+  .modal-body{
+    padding: 20px 56px;
+  }
+  .form-group{
+	  padding-top: 10px;
+	  position: relative;
+  }
+    label.tip{
+  	  float: left;
+  	  width: 16%;
+  	  //padding: 12px 0;
+      font-weight: normal;
+      margin-bottom: 0;
+      text-align: right;
+      line-height: 38px;
+      margin-right: 10px;
+    }
+    label.error{
+        color: #FF6F3D;
+        width: 50%;
+        margin-top: 8px;
+        padding-left: 20px;
+        font-weight: normal;
+        margin-left: 82px;
+        background: url(/libs/images/includes/error.png) no-repeat left center;
+      }
+    input{
+      float: left;
+      width: 70%;
+      border: 1px solid #e8e8e8;
+      border-radius: 0;
+      padding: 18px 12px;
+      box-shadow: none;
+      &:focus{
+      border-color: #83c44e;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #C5D6B7;
+    }
+      &.error{
+        border: 1px solid #FF6F3D;
+      }
+    }
+    .form-captcha{
+      width: 40%;
+    }
+    .captcha-show{
+      width: 80px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 18px;
+      font-weight: normal;
+      background-color: #fff;
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+      text-align: center;
+      float: left;
+    }
+    .form-clear{
+      position: absolute;
+      top: 23px;
+      right: 15%;
+    }
+    .form-captcha-clear{
+      right: 45%;
+    }
+    .captcha-repeat{
+      font-size: 12px;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    .has-remove-sign{
+      display: none;
+    }
+  .modal-footer{
+    text-align: center;
+    padding: 36px 0;
+    
+    .btn{
+      border-radius: 0;
+      width: 310px;
+      height: 42px;
+      background: #83c44e;
+      border: 1px solid rgba(186,186,186,0.3);
+      font-size: 16px;
+      font-weight: bold;
+      &:hover{
+        background: #3D963E;
+      }
+    }
+  }
+  }
+
+
+
+/* 搜索条样式 */
+.nav {
+  background-color: rgba(202, 202, 202, 0.07);
+  margin-bottom: 20px;
+  margin-top: 40px;
+  padding: 20px 0;
+  border-bottom: 1px solid #C3C3C3;
+  .nav-bread{float: left;width: 20%;height: 38px; line-height: 38px; color: #666;}
+}
+
+.nav-search{
+    width: 40%;
+    float: right;
+    form{
+      width: 100%;
+      .input-group{
+        width: 100%;
+        input{
+          width: 80%;
+          height: 38px;
+          padding: 5px;
+          float: left;
+          border-radius: 0;
+          &:focus{
+            border-color: #83c44e;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #C5D6B7;
+          }
+        }
+        .input-group-btn{
+          width: 20%;
+          float: left;
+        }
+        .btn-default{
+          color: #616161;
+          background: #83c44e;
+          border: 1px solid #83c44e;
+          width: 80px;
+          font-size:17px;
+          padding: 9px 10px 3px 10px;
+          border-radius: 0;
+          color: #fff;
+          &:hover{
+            background: #3D963E;
+            color: #fff;
+            border: 1px solid #3D963E;
+          }
+    }
+      }
+}
+    
+
+  ul{
+  	list-style: none;
+  	li{
+  		float: left;
+  		margin-left: 20px;
+  		a{
+  			text-decoration: none;
+  		}
+  	}
+  }
+}
+
+/* 登陆和注册页面样式 */
+.signContainer{
+  .signContent{
+    width: 800px;
+    margin: 40px auto 0;
+    ul{
+      float: left;
+      list-style: none;
+      margin-top: 40px;
+      li{
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+.signheader{
+  color: #494949;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  .captch-show{
+    color: #000;
+  }
+}
+.m-footer{
+  background: #545652;
+  text-align: center;
+  .p{ line-height: 30px;color: #fff;}
+}
+
+.container{
+  .table{
+    th{text-align: center;}
+    td{
+      text-align: center;
+      vertical-align: middle;
+    }
+}
+}
+
+

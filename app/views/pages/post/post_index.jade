@@ -1,0 +1,110 @@
+extends ../../includes/layout
+
+block link
+  meta(name="description" content="记录你想听的、在听和听过的唱片，顺便打分、添加标签及个人附注、写评论。根据你的口味，豆瓣会推荐适合的唱片给你。")
+  link(href="/libs/css/post/post_index.min.css",rel="stylesheet")
+block content
+  .wrapper
+    .content
+      .container-fluid
+        .row
+          .col-md-12.col-xs-12.col-sm-12.screen
+            #galleryFrames.gallery-frames
+              .panel.panel-default
+                  .pannel-body.gallery-hot
+                    ul.slide-content.clearfix(style="width: 10000px; left: -585px")
+                      li.slide-item
+                        a(href="javascript:;")
+                          img(src="/libs/images/post/gallery/" + fileList.length + '.jpg' alt="")
+                      - for(var i = 1; i <= fileList.length; i++)
+                          li.slide-item
+                            a(href="javascript:;")
+                              img(src="/libs/images/post/gallery/" + i + '.jpg' alt="")
+                      li.slide-item
+                        a(href="javascript:;")
+                          img(src="/libs/images/post/gallery/1.jpg" alt="")
+                  //button.slide-prev
+                  //button.slide-next
+                  //ul.slide-dots
+                    //li.slide-active 1
+                    //- for(var i = 2; i <= fileList.length; i++) {
+                        //li= i
+                    //- }
+            // 文章推荐标签节点
+            each cat in postCategories
+              if cat.name === '文章推荐'
+                .panel.panel-default#editorFeatured.editor-featured
+                  .panel-heading.screen-header
+                    h4 #{cat.name}
+                    .slide-tip
+                      span.ui-side-index 1
+                      span &nbsp;/&nbsp;
+                      span.ui-side-max
+                      button.slide-prev
+                      button.slide-next
+                  .panel-body.screen-body
+                    if cat.posts && cat.posts.length > 0
+                      each item in cat.posts
+                        .thumbnail
+                          a(href="/post/#{item._id}" target="_blank")
+                            img(src="/upload/post/#{item.image}", alt="#{item.title}")
+                          .caption
+                            h5
+                              a(href="/post/#{item._id}" target="_blank") #{item.title}
+                            //div #{item.summary}
+                            p 阅读次数：#{item.pv}次
+                            p 发布时间：#{moment(item.meta.updateAt).format('YYYY/MM/DD')}
+            // 前端技术
+            .screen#newAlbums.new-albums
+              each cat in postCategories
+                if cat.name === '前端技术html'
+                  .class-top
+                    span 前端技术
+                    ul
+                      li.on: a(href="javascript:;") html
+                      li: a(href="javascript:;") css
+                      li: a(href="javascript:;") sass
+                      li: a(href="javascript:;") less
+                      li: a(href="javascript:;") javascript
+                      li: a(href="javascript:;") jquery
+                      li: a(href="javascript:;") sass
+                    a.more(href="/post/results?cat=#{cat._id}&p=0" target="_blank") 更多
+                  .screen
+                    .panel-body.screen-body
+                      if cat.posts && cat.posts.length > 0
+                        - var len = Math.min(10,cat.posts.length)
+                        - for(var i = 0; i < len; i++)
+                          .thumbnail
+                            a(href="/post/#{cat.posts[i]._id}" target="_blank")
+                                img(src="/upload/post/#{cat.posts[i].image}" alt="#{cat.posts[i].title}")
+                            .caption
+                              h5
+                               a(href="/post/#{cat.posts[i]._id}" target="_blank") #{cat.posts[i].title}
+                              p #{cat.posts[i].poster}
+            .screen#kuangjs.new-albums
+              each cat in postCategories
+                if cat.name === '前端框架Bootstrop'
+                  .class-top
+                    span 前端框架
+                    ul
+                      li.on: a(href="javascript:;") Bootstrop
+                      li: a(href="javascript:;") React
+                      li: a(href="javascript:;") AngularJS
+                      li: a(href="javascript:;") JqueryUI
+                      li: a(href="javascript:;") JqueryMobile
+                      li: a(href="javascript:;") zepto
+                    a.more(href="/post/results?cat=#{cat._id}&p=0" target="_blank") 更多
+                  .screen
+                    .panel-body.screen-body
+                      if cat.posts && cat.posts.length > 0
+                        - var len = Math.min(10,cat.posts.length)
+                        - for(var i = 0; i < len; i++)
+                          .thumbnail
+                            a(href="/post/#{cat.posts[i]._id}" target="_blank")
+                                img(src="/upload/post/#{cat.posts[i].image}" alt="#{cat.posts[i].title}")
+                            .caption
+                              h5
+                               a(href="/post/#{cat.posts[i]._id}" target="_blank") #{cat.posts[i].title}
+                              p #{cat.posts[i].poster}          
+  script(src="/libs/scripts/js/post/post_index.min.js")
+  

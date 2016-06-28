@@ -1,0 +1,32 @@
+extends ../../includes/layout
+
+block content
+  .signContainer
+    .row
+      .signContent.clearfix
+        .col-md-5.sign-form
+          form#dSignupForm(method="POST", action="/user/signup")
+            .signheader 注册账户
+            .modal-body.clearfix
+              .form-group.clearfix
+                label(for="dSignupName") 用户名
+                input#dSignupName.form-control(name="user[name]", type="text" placeholder="账号")
+                span.glyphicon.glyphicon-remove-sign.form-clear(aria-hidden="true")
+                label#dSignupName-error.error(for="dSignupName" style="display:none")
+              .form-group.clearfix
+                label(for="dSignupPassword") 密码
+                input#dSignupPassword.form-control(name="user[password]", type="password" placeholder="密码")
+                span.glyphicon.glyphicon-remove-sign.form-clear(aria-hidden="true")
+                label#dSignupName-error.error(for="dSignupName" style="display:none")
+              .form-group.clearfix
+                label(for="dSignupConfirmPassword") 确认密码
+                input#dSignupConfirmPassword.form-control(name="confirm-password", type="password" placeholder="确认密码")
+                span.glyphicon.glyphicon-remove-sign.form-clear(aria-hidden="true")
+                label#dSignupConfirmPassword-error.error(for="dSignupConfirmPassword" style="display:none")
+            .modal-footer
+              a(href="/"): button.btn.btn-default(type="button") 关闭
+              button.btn.btn-success(type="submit") 注册
+        .col-md-offset-1.col-md-4
+          ul.aside
+            li > 已有帐号？
+            a(href="/signin") 立即登录

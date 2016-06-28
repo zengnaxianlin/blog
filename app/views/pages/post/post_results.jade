@@ -1,0 +1,43 @@
+extends ../../includes/layout
+block link
+  link(href="/libs/css/include/results.min.css",rel="stylesheet")
+block content
+  .container.bgfff
+    .row
+      .panel.panel-success
+        .panel-heading
+          h4 #{keyword}
+        .panel-body
+          if posts && posts.length > 0
+            each item in posts
+              .col-md-2
+                .thumbnail
+                  if item.image.indexOf('http:') > -1
+                    a(href="/post/#{item._id}")
+                      img(src="#{item.image}" alt="#{item.title}")
+                  else
+                    a(href="/post/#{item._id}")
+                      img(src="/upload/post/#{item.image}", alt="#{item.title}")
+                  .caption(style="text-align: center")
+                    h5(style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;") #{item.title}
+          if postCats && postCats.length > 0
+            each item in postCats
+              .panel.panel-info
+                .panel-heading
+                  h5 #{item.name}
+                .panel-body
+                  each post in item.posts
+                    .col-md-2
+                      .thumbnail
+                        if post.image && post.image.indexOf('http:') > -1
+                          a(href="/post/#{post._id}")
+                            img(src="#{post.image}", alt="#{post.title}")
+                        else
+                          a(href="/post/#{post._id}")
+                            img(src="/upload/post/#{post.image}", alt="#{post.title}")
+                        .caption
+                          h5(style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;") #{post.title}
+      div(style="margin: 0 auto;text-align: center;")
+        ul.pagination#page(data-currentPage = currentPage data-totalPage = totalPage data-query = query)
+  script(src="/libs/scripts/js/include/page.min.js")
+  script(src="/libs/scripts/js/post/post_results.min.js")

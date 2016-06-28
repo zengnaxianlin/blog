@@ -1,0 +1,150 @@
+extends ../../includes/layout
+
+block link
+  meta(name="description" content="音乐歌颂人们的生活，引导人们走向光明的未来。")
+  link(href="/libs/css/music/music_index.min.css",rel="stylesheet")
+block content
+  .wrapper
+    .content
+      .container-fluid
+        .row
+          .col-md-12.col-xs-12.col-sm-12.screen
+            // 顶部轮播图标签节点
+            #galleryFrames.gallery-frames
+              .panel.panel-default
+                .pannel-body.gallery-hot
+                  ul.slide-content.clearfix(style="width: 10000px; left: -585px")
+                    li.slide-item
+                      a(href="javascript:;")
+                        img(src="/libs/images/music/gallery/" + fileList.length + '.jpg' alt="")
+                    - for(var i = 1; i <= fileList.length; i++)
+                        li.slide-item
+                          a(href="javascript:;")
+                            img(src="/libs/images/music/gallery/" + i + '.jpg' alt="")
+                    li.slide-item
+                      a(href="javascript:;")
+                        img(src="/libs/images/music/gallery/1.jpg" alt="")
+                button.slide-prev
+                button.slide-next
+                ul.slide-dots
+                  li.slide-active 1
+                  - for(var i = 2; i <= fileList.length; i++) {
+                      li= i
+                  - }
+            // 编辑推荐标签节点
+            each cat in musicCategories
+              if cat.name === '编辑推荐'
+                .panel.panel-default#editorFeatured.editor-featured
+                  .panel-heading.screen-header
+                    h4 #{cat.name}
+                    .slide-tip
+                      span.ui-side-index 1
+                      span &nbsp;/&nbsp;
+                      span.ui-side-max
+                      button.slide-prev
+                      button.slide-next
+                  .panel-body.screen-body
+                    if cat.musics && cat.musics.length > 0
+                      each item in cat.musics
+                        .thumbnail
+                          a(href="/music/#{item._id}" target="_blank")
+                            if item.image.indexOf('http:') > -1
+                              img(src="#{item.image}", alt="#{item.title}")
+                            else
+                              img(src="/upload/music/#{item.image}", alt="#{item.title}")
+                          .caption
+                            h5
+                              a(href="/music/#{item._id}" target="_blank") #{item.title}
+                            p #{item.singer}
+            // 新碟榜
+            .screen#newAlbums.new-albums
+              each cat in musicCategories
+                if cat.name === '新碟榜最热'
+                  .class-top
+                    span 新碟榜
+                    ul
+                      li.on: a(href="javascript:;") 最热
+                      li: a(href="javascript:;") 华语
+                      li: a(href="javascript:;") 欧美
+                      li: a(href="javascript:;") 日韩
+                      li: a(href="javascript:;") 单曲
+                    a.more(href="/music/results?cat=#{cat._id}&p=0" target="_blank") 更多
+                  .screen
+                    .panel-body.screen-body
+                      if cat.musics && cat.musics.length > 0
+                        - var len = Math.min(10,cat.musics.length)
+                        - for(var i = 0; i < len; i++)
+                          .thumbnail
+                            a(href="/music/#{cat.musics[i]._id}" target="_blank")
+                              if cat.musics[i].image.indexOf('http:') > -1
+                                img(src="#{cat.musics[i].image}" alt="#{cat.musics[i].title}")
+                              else
+                                img(src="/upload/music/#{cat.musics[i].image}" alt="#{cat.musics[i].title}")
+                            .caption
+                              h5
+                               a(href="/music/#{cat.musics[i]._id}" target="_blank") #{cat.musics[i].title}
+                              p #{cat.musics[i].singer}
+                            .top
+                            .left
+                            .right
+                            .bottom
+            // 近期热门歌单
+            #hotProgrammes
+              each cat in programmes
+                if cat.name === '近期热门歌单最热'
+                  .class-top
+                    span 近期热门歌单
+                    ul
+                      li.on: a(href="javascript:;") 最热
+                      li: a(href="javascript:;") 流行
+                      li: a(href="javascript:;") 摇滚
+                      li: a(href="javascript:;") 民谣
+                      li: a(href="javascript:;") 原生
+                    a.more(href="/music/results?pro=#{cat._id}&p=0" target="_blank") 更多
+                  .screen
+                    .panel-body.screen-body
+                      if cat.musicCategories && cat.musicCategories.length > 0
+                        - var ctyLen = cat.musicCategories.length
+                        - for(var i = 0; i < ctyLen; i++)
+                          .thumbnail
+                            .inner
+                              h5
+                                a(href="/music/results?cat=#{cat.musicCategories[i]._id}&p=0" target="_blank") #{cat.musicCategories[i].name}
+                              .content
+                                each musicItem in musicCategories
+                                  if musicItem.name === cat.musicCategories[i].name
+                                    if musicItem.musics[0]
+                                      img(src="#{musicItem.musics[0].image}")
+                                    - var len = Math.min(3,musicItem.musics.length)
+                                    - for(var j=0;j<len;j++)
+                                      a(href="/music/#{musicItem.musics[j]._id}" target="_blank" title="#{musicItem.musics[j].title}")
+                                        p=j+1 + '.'
+                                          |#{musicItem.musics[j].title}
+                                    span ...
+          .col-md-12.col-xs-12.col-sm-12.screen
+            // 豆瓣音乐250
+            #recInfo
+              .billboard
+                each cat in musicCategories
+                  if cat.name === '豆瓣音乐250'
+                    .billboard-hd.class-top
+                      h4 豆瓣音乐250
+                      a.more(href="/music/results?cat=#{cat._id}&p=0" target="_blank") 更多
+                    .billboard-bd.clearfix
+                      if cat.musics && cat.musics.length > 0
+                        - var len = Math.min(10,cat.musics.length)
+                        - for(var i = 0; i < len; i++)
+                          .thumbnail
+                            if cat.musics[i]
+                              a(href="/music/#{cat.musics[i]._id}" target="_blank")
+                                if cat.musics[i].image.indexOf('http:') > -1
+                                  img(src="#{cat.musics[i].image}", alt="#{cat.musics[i].title}")
+                                else
+                                  img(src="/upload/music/#{cat.musics[i].image}", alt="#{cat.musics[i].title}")
+                                h5 #{cat.musics[i].title}
+                            .opacitybox
+                            a.playradio(href="/music/#{cat.musics[i]._id}" target="_blank")
+                              button.play-button
+                                i.glyphicon.glyphicon-play
+  script(src="/libs/scripts/js/music/music_index.min.js")
+  

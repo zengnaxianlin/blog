@@ -1,0 +1,207 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\nodejs\\node.exe',
+1 verbose cli   'D:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'readable-stream/passthrough',
+1 verbose cli   '--save' ]
+2 info using npm@2.14.20
+3 info using node@v4.4.1
+4 verbose install initial load of E:\zengna\package.json
+5 warn package.json nodejs_movie@1.0.0 No repository field.
+6 verbose installManyTop reading scoped package data from E:\zengna\node_modules\bcrypt\package.json
+7 verbose installManyTop reading scoped package data from E:\zengna\node_modules\bcrypt-nodejs\package.json
+8 verbose installManyTop reading scoped package data from E:\zengna\node_modules\body-parser\package.json
+9 verbose installManyTop reading scoped package data from E:\zengna\node_modules\ccap\package.json
+10 verbose installManyTop reading scoped package data from E:\zengna\node_modules\connect-mongo\package.json
+11 verbose installManyTop reading scoped package data from E:\zengna\node_modules\connect-multiparty\package.json
+12 verbose installManyTop reading scoped package data from E:\zengna\node_modules\cookie-parser\package.json
+13 verbose installManyTop reading scoped package data from E:\zengna\node_modules\del\package.json
+14 verbose installManyTop reading scoped package data from E:\zengna\node_modules\express\package.json
+15 verbose installManyTop reading scoped package data from E:\zengna\node_modules\express-session\package.json
+16 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp\package.json
+17 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp-autoprefixer\package.json
+18 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp-cache\package.json
+19 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp-imagemin\package.json
+20 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp-jshint\package.json
+21 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp-load-plugins\package.json
+22 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp-minify-css\package.json
+23 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp-mocha\package.json
+24 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp-nodemon\package.json
+25 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp-rename\package.json
+26 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp-ruby-sass\package.json
+27 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp-sass\package.json
+28 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp-uglify\package.json
+29 verbose installManyTop reading scoped package data from E:\zengna\node_modules\gulp-watch\package.json
+30 verbose installManyTop reading scoped package data from E:\zengna\node_modules\http\package.json
+31 verbose installManyTop reading scoped package data from E:\zengna\node_modules\jade\package.json
+32 verbose installManyTop reading scoped package data from E:\zengna\node_modules\jshint\package.json
+33 verbose installManyTop reading scoped package data from E:\zengna\node_modules\mocha\package.json
+34 verbose installManyTop reading scoped package data from E:\zengna\node_modules\moment\package.json
+35 verbose installManyTop reading scoped package data from E:\zengna\node_modules\mongodb\package.json
+36 verbose installManyTop reading scoped package data from E:\zengna\node_modules\mongoose\package.json
+37 verbose installManyTop reading scoped package data from E:\zengna\node_modules\morgan\package.json
+38 verbose installManyTop reading scoped package data from E:\zengna\node_modules\object-assign\package.json
+39 verbose installManyTop reading scoped package data from E:\zengna\node_modules\pretty-bytes\package.json
+40 verbose installManyTop reading scoped package data from E:\zengna\node_modules\should\package.json
+41 verbose installManyTop reading scoped package data from E:\zengna\node_modules\through2-concurrent\package.json
+42 verbose installManyTop reading scoped package data from E:\zengna\node_modules\ueditor\package.json
+43 verbose installManyTop reading scoped package data from E:\zengna\node_modules\ueditor-nodejs\package.json
+44 verbose installManyTop reading scoped package data from E:\zengna\node_modules\underscore\package.json
+45 info package.json ccap@0.6.4 No license field.
+46 info package.json gulp-minify-css@1.2.4 No repository field.
+47 info package.json gulp-rename@1.2.2 No license field.
+48 info package.json http@0.0.0 http is also the name of a node core module.
+49 info package.json http@0.0.0 No description
+50 info package.json http@0.0.0 No repository field.
+51 info package.json ueditor-nodejs@0.1.4 No license field.
+52 info package.json bcrypt-nodejs@0.0.3 No license field.
+53 info package.json ueditor@1.1.1 No description
+54 info package.json ueditor@1.1.1 No license field.
+55 verbose readDependencies loading dependencies from E:\zengna\package.json
+56 silly cache add args [ 'readable-stream/passthrough', null ]
+57 verbose cache add spec readable-stream/passthrough
+58 silly cache add parsed spec Result {
+58 silly cache add   raw: 'readable-stream/passthrough',
+58 silly cache add   scope: null,
+58 silly cache add   name: null,
+58 silly cache add   rawSpec: 'readable-stream/passthrough',
+58 silly cache add   spec: 'github:readable-stream/passthrough',
+58 silly cache add   type: 'hosted',
+58 silly cache add   hosted:
+58 silly cache add    { type: 'github',
+58 silly cache add      ssh: 'git@github.com:readable-stream/passthrough.git',
+58 silly cache add      sshUrl: 'git+ssh://git@github.com/readable-stream/passthrough.git',
+58 silly cache add      httpsUrl: 'git+https://github.com/readable-stream/passthrough.git',
+58 silly cache add      gitUrl: 'git://github.com/readable-stream/passthrough.git',
+58 silly cache add      shortcut: 'github:readable-stream/passthrough',
+58 silly cache add      directUrl: 'https://raw.githubusercontent.com/readable-stream/passthrough/master/package.json' } }
+59 verbose addRemoteGit caching readable-stream/passthrough
+60 verbose addRemoteGit readable-stream/passthrough is a repository hosted by github
+61 silly tryGitProto attempting to clone git://github.com/readable-stream/passthrough.git
+62 silly tryClone cloning readable-stream/passthrough via git://github.com/readable-stream/passthrough.git
+63 verbose tryClone git-github-com-readable-stream-passthrough-git-370408f1 not in flight; caching
+64 verbose correctMkdir D:\nodejs\cache\_git-remotes correctMkdir not in flight; initializing
+65 info git [ 'config', '--get', 'remote.origin.url' ]
+66 warn addRemoteGit Error: Command failed: git -c core.longpaths=true config --get remote.origin.url
+66 warn addRemoteGit
+66 warn addRemoteGit     at ChildProcess.exithandler (child_process.js:213:12)
+66 warn addRemoteGit     at emitTwo (events.js:87:13)
+66 warn addRemoteGit     at ChildProcess.emit (events.js:172:7)
+66 warn addRemoteGit     at maybeClose (internal/child_process.js:827:16)
+66 warn addRemoteGit     at Socket.<anonymous> (internal/child_process.js:319:11)
+66 warn addRemoteGit     at emitOne (events.js:77:13)
+66 warn addRemoteGit     at Socket.emit (events.js:169:7)
+66 warn addRemoteGit     at Pipe._onclose (net.js:475:12)
+66 warn addRemoteGit  readable-stream/passthrough resetting remote D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-370408f1 because of error: { [Error: Command failed: git -c core.longpaths=true config --get remote.origin.url
+66 warn addRemoteGit ]
+66 warn addRemoteGit   killed: false,
+66 warn addRemoteGit   code: 1,
+66 warn addRemoteGit   signal: null,
+66 warn addRemoteGit   cmd: 'git -c core.longpaths=true config --get remote.origin.url' }
+67 info resetRemote resetting D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-370408f1 for readable-stream/passthrough
+68 silly gentlyRm D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-370408f1 is being purged
+69 verbose gentlyRm don't care about contents; nuking D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-370408f1
+70 silly vacuum-fs purging D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-370408f1
+71 silly vacuum-fs quitting because other entries in D:\nodejs\cache\_git-remotes
+72 info git [ 'clone',
+72 info git   '--template=D:\\nodejs\\cache\\_git-remotes\\_templates',
+72 info git   '--mirror',
+72 info git   'git://github.com/readable-stream/passthrough.git',
+72 info git   'D:\\nodejs\\cache\\_git-remotes\\git-github-com-readable-stream-passthrough-git-370408f1' ]
+73 error git clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror git://github.com/readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-370408f1: Cloning into bare repository 'D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-370408f1'...
+73 error git clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror git://github.com/readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-370408f1: fatal: remote error:
+73 error git clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror git://github.com/readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-370408f1:   Repository not found.
+74 silly tryHTTPS attempting to clone git+https://github.com/readable-stream/passthrough.git
+75 silly tryClone cloning readable-stream/passthrough via git+https://github.com/readable-stream/passthrough.git
+76 verbose tryClone https-github-com-readable-stream-passthrough-git-0a2613d6 not in flight; caching
+77 verbose correctMkdir D:\nodejs\cache\_git-remotes correctMkdir not in flight; initializing
+78 info git [ 'config', '--get', 'remote.origin.url' ]
+79 warn addRemoteGit Error: Command failed: git -c core.longpaths=true config --get remote.origin.url
+79 warn addRemoteGit
+79 warn addRemoteGit     at ChildProcess.exithandler (child_process.js:213:12)
+79 warn addRemoteGit     at emitTwo (events.js:87:13)
+79 warn addRemoteGit     at ChildProcess.emit (events.js:172:7)
+79 warn addRemoteGit     at maybeClose (internal/child_process.js:827:16)
+79 warn addRemoteGit     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+79 warn addRemoteGit  readable-stream/passthrough resetting remote D:\nodejs\cache\_git-remotes\https-github-com-readable-stream-passthrough-git-0a2613d6 because of error: { [Error: Command failed: git -c core.longpaths=true config --get remote.origin.url
+79 warn addRemoteGit ]
+79 warn addRemoteGit   killed: false,
+79 warn addRemoteGit   code: 1,
+79 warn addRemoteGit   signal: null,
+79 warn addRemoteGit   cmd: 'git -c core.longpaths=true config --get remote.origin.url' }
+80 info resetRemote resetting D:\nodejs\cache\_git-remotes\https-github-com-readable-stream-passthrough-git-0a2613d6 for readable-stream/passthrough
+81 silly gentlyRm D:\nodejs\cache\_git-remotes\https-github-com-readable-stream-passthrough-git-0a2613d6 is being purged
+82 verbose gentlyRm don't care about contents; nuking D:\nodejs\cache\_git-remotes\https-github-com-readable-stream-passthrough-git-0a2613d6
+83 silly vacuum-fs purging D:\nodejs\cache\_git-remotes\https-github-com-readable-stream-passthrough-git-0a2613d6
+84 silly vacuum-fs quitting because other entries in D:\nodejs\cache\_git-remotes
+85 info git [ 'clone',
+85 info git   '--template=D:\\nodejs\\cache\\_git-remotes\\_templates',
+85 info git   '--mirror',
+85 info git   'https://github.com/readable-stream/passthrough.git',
+85 info git   'D:\\nodejs\\cache\\_git-remotes\\https-github-com-readable-stream-passthrough-git-0a2613d6' ]
+86 error git clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror https://github.com/readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\https-github-com-readable-stream-passthrough-git-0a2613d6: Cloning into bare repository 'D:\nodejs\cache\_git-remotes\https-github-com-readable-stream-passthrough-git-0a2613d6'...
+86 error git clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror https://github.com/readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\https-github-com-readable-stream-passthrough-git-0a2613d6: remote: Invalid username or password.
+86 error git clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror https://github.com/readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\https-github-com-readable-stream-passthrough-git-0a2613d6: fatal: Authentication failed for 'https://github.com/readable-stream/passthrough.git/'
+87 silly trySSH attempting to clone git@github.com:readable-stream/passthrough.git
+88 silly tryClone cloning readable-stream/passthrough via git@github.com:readable-stream/passthrough.git
+89 verbose tryClone git-github-com-readable-stream-passthrough-git-1e288167 not in flight; caching
+90 verbose correctMkdir D:\nodejs\cache\_git-remotes correctMkdir not in flight; initializing
+91 info git [ 'config', '--get', 'remote.origin.url' ]
+92 warn addRemoteGit Error: Command failed: git -c core.longpaths=true config --get remote.origin.url
+92 warn addRemoteGit
+92 warn addRemoteGit     at ChildProcess.exithandler (child_process.js:213:12)
+92 warn addRemoteGit     at emitTwo (events.js:87:13)
+92 warn addRemoteGit     at ChildProcess.emit (events.js:172:7)
+92 warn addRemoteGit     at maybeClose (internal/child_process.js:827:16)
+92 warn addRemoteGit     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+92 warn addRemoteGit  readable-stream/passthrough resetting remote D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167 because of error: { [Error: Command failed: git -c core.longpaths=true config --get remote.origin.url
+92 warn addRemoteGit ]
+92 warn addRemoteGit   killed: false,
+92 warn addRemoteGit   code: 1,
+92 warn addRemoteGit   signal: null,
+92 warn addRemoteGit   cmd: 'git -c core.longpaths=true config --get remote.origin.url' }
+93 info resetRemote resetting D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167 for readable-stream/passthrough
+94 silly gentlyRm D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167 is being purged
+95 verbose gentlyRm don't care about contents; nuking D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167
+96 silly vacuum-fs purging D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167
+97 silly vacuum-fs quitting because other entries in D:\nodejs\cache\_git-remotes
+98 info git [ 'clone',
+98 info git   '--template=D:\\nodejs\\cache\\_git-remotes\\_templates',
+98 info git   '--mirror',
+98 info git   'git@github.com:readable-stream/passthrough.git',
+98 info git   'D:\\nodejs\\cache\\_git-remotes\\git-github-com-readable-stream-passthrough-git-1e288167' ]
+99 error git clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror git@github.com:readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167: Cloning into bare repository 'D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167'...
+99 error git clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror git@github.com:readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167: Host key verification failed.
+99 error git clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror git@github.com:readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167: fatal: Could not read from remote repository.
+99 error git clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror git@github.com:readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167:
+99 error git clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror git@github.com:readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167: Please make sure you have the correct access rights
+99 error git clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror git@github.com:readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167: and the repository exists.
+100 verbose stack Error: Command failed: git -c core.longpaths=true clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror git@github.com:readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167
+100 verbose stack Cloning into bare repository 'D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167'...
+100 verbose stack Host key verification failed.
+100 verbose stack fatal: Could not read from remote repository.
+100 verbose stack
+100 verbose stack Please make sure you have the correct access rights
+100 verbose stack and the repository exists.
+100 verbose stack
+100 verbose stack     at ChildProcess.exithandler (child_process.js:213:12)
+100 verbose stack     at emitTwo (events.js:87:13)
+100 verbose stack     at ChildProcess.emit (events.js:172:7)
+100 verbose stack     at maybeClose (internal/child_process.js:827:16)
+100 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+101 verbose cwd E:\zengna
+102 error Windows_NT 6.1.7601
+103 error argv "D:\\nodejs\\node.exe" "D:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "readable-stream/passthrough" "--save"
+104 error node v4.4.1
+105 error npm  v2.14.20
+106 error code 128
+107 error Command failed: git -c core.longpaths=true clone --template=D:\nodejs\cache\_git-remotes\_templates --mirror git@github.com:readable-stream/passthrough.git D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167
+107 error Cloning into bare repository 'D:\nodejs\cache\_git-remotes\git-github-com-readable-stream-passthrough-git-1e288167'...
+107 error Host key verification failed.
+107 error fatal: Could not read from remote repository.
+107 error
+107 error Please make sure you have the correct access rights
+107 error and the repository exists.
+108 error If you need help, you may report this error at:
+108 error     <https://github.com/npm/npm/issues>
+109 verbose exit [ 1, true ]

@@ -1,0 +1,83 @@
+extends ../../includes/layout
+
+block content
+  .container.bgfff
+    .row
+      form.form-horizontal(method="post", action="/admin/post/new",enctype="multipart/form-data" onsubmit='javascript: return check()')
+        if post._id
+          input(type="hidden", name="post[_id]", value=post._id)
+        .form-group
+          label.col-sm-3.control-label(for="inputPostCategory") 文章分类
+          .col-sm-7
+            input#inputPostCategory.form-control(type="text", name="post[postCategoryName]", value=post.postCategoryName)
+        .form-group
+          label.col-sm-3.control-label 分类选择
+          .col-sm-7(style="height:auto;")
+            each cat in postCategories
+              label.radio-inline
+                if post._id
+                  input(type="radio", name="post[postCategory]", value=cat._id, checked=cat._id.toString()==post.postCategory.toString())
+                else
+                  input(type="radio", name="post[postCategory]", value=cat._id)
+                | #{cat.name}
+        .form-group
+          label.col-sm-3.control-label(for="inputPostTitle") 文章标题
+          .col-sm-7
+            input#inputPostTitle.form-control(type="text", name="post[title]", value=post.title)
+        .form-group
+          label.col-sm-3.control-label(for="inputPoster") 作者
+          .col-sm-7
+            input#inputPoster.form-control(type="text", name="post[poster]", value=post.poster)
+        .form-group
+          label.col-sm-3.control-label(for="inputPostImage") 文章图片
+          .col-sm-7
+            input#inputPostImage.form-control(type="text", name="post[image]", value=post.image)
+        .form-group
+          label.col-sm-3.control-label(for="uploadPostImage") 图片上传
+          .col-sm-7
+            input#uploadPostImage(type="file", name="uploadPostImage")
+        .form-group
+          label.col-sm-3.control-label(for="inputPostRating") 文章评分
+          .col-sm-7
+            input#inputPostRating.form-control(type="text", name="post[rating]", value=post.rating)
+        .form-group
+          label.col-sm-3.control-label(for="inputPostSummary") 文章简介
+          .col-sm-7
+            textarea#inputPostSummary.form-control(type="text", name="post[summary]")= post.summary
+        .form-group
+          label.col-sm-3.control-label(for="inputPostContents") 文章内容
+          .col-sm-7
+            script(id="editor" type="text/plain" style="width:100%;height:700px;")
+        .form-group
+          .col-sm-offset-3.col-sm-7
+            button.btn.btn-default(type="submit" id="submit") 录入
+      textarea(id = 'data' class = 'hide')= post.contents
+
+  script(type="text/javascript", src="/ueditor/ueditor.config.js")
+  script(type="text/javascript", src="/ueditor/ueditor.all.min.js")
+  script(type="text/javascript", charset='utf-8' src="/ueditor/lang/zh-cn/zh-cn.js")
+  script(type="text/javascript").
+      function check() {
+          $('#submit').attr("disabled", "true");
+          var title = $('#inputPostTitle').val().trim();
+          var content = UE.getEditor('editor').getContent().trim();
+          if (!title) {
+              alert('请输入标题');
+              $('#submit').attr("disabled", false);
+              return false
+          }
+          if ($('<div>' + content + '</div>').text().trim().length <= 20) {
+              alert('请输入博客内容，至少20字');
+              $('#submit').attr("disabled", false);
+              return false;
+          }
+          return true;
+      }
+  script(type='text/javascript').
+    var ue = UE.getEditor('editor', {
+        textarea: 'post[contents]'
+    });
+    setTimeout(function(){
+        ue.setContent($('#data').text());
+    }, 2000);
+  script(src='/libs/scripts/js/post/post_admin.min.js')

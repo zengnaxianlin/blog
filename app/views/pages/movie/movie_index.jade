@@ -1,0 +1,127 @@
+extends ../../includes/layout
+
+block link
+  meta(name="keywords" content="电影、经典电影、热映、电视剧、美剧、影评、电影院、电影票、排行、推荐")
+  meta(name="description" content="豆瓣电影提供最新的电影介绍及评论包括上映影片的影讯查询及购票服务。你可以记录想看、在看和看过的电影电视剧，顺便打分、写影评。根据你的口味，豆瓣电影会推荐好电影给你。")
+  link(href="/libs/css/movie/movie_index.min.css",rel="stylesheet")
+block content
+  // 容器标签节点
+  .wrapper
+    .content
+      .container-fluid
+        .row
+          .col-md-12.col-xs-12.col-sm-12.screen
+            // 本周口碑榜节点标签
+            // 热门推荐标签节点
+            #galleryFrames.panel.panel-default
+              .panel-heading.screen-header
+                h4 热门推荐
+                .slide-tip
+                  span.side-index 1
+                  span &nbsp;/&nbsp;
+                  span.side-max
+                  button.slide-prev
+                  button.slide-next
+              .pannel-body
+                ul.slide-content.clearfix(style="")
+                  li.slide-item
+                    a(href="javascript:;")
+                      img(src="/libs/images/movie/galleryFrames/4.jpg" alt="用实力证明不凡")
+                  li.slide-item
+                    a(href="javascript:;")
+                      img(src="/libs/images/movie/galleryFrames/1.jpg" alt="用实力证明不凡")
+                  li.slide-item
+                    a(href="javascript:;")
+                      img(src="/libs/images/movie/galleryFrames/2.jpg" alt="怒吼你心中的怪兽(╰_╯)")
+                  li.slide-item
+                    a(href="javascript:;")
+                      img(src="/libs/images/movie/galleryFrames/3.jpg" alt="关于电影本身的电影")
+                  li.slide-item
+                    a(href="javascript:;")
+                      img(src="/libs/images/movie/galleryFrames/4.jpg" alt="用实力证明不凡")
+                  li.slide-item
+                    a(href="javascript:;")
+                      img(src="/libs/images/movie/galleryFrames/5.jpg" alt="用实力证明不凡")
+                  li.slide-item
+                    a(href="javascript:;")
+                      img(src="/libs/images/movie/galleryFrames/6.jpg" alt="用实力证明不凡")
+                  li.slide-item
+                    a(href="javascript:;")
+                      img(src="/libs/images/movie/galleryFrames/1.jpg" alt="用实力证明不凡")
+            // 顶部轮播图标签节点
+            #scrollMoives
+              each cat in categories
+                if cat.name === '正在上映'
+                  .panel.panel-default
+                    .panel-heading.screen-header
+                      h4#headerNow
+                        a(href="/movie/results?cat=#{cat._id}&p=0" target="_blank") #{cat.name}
+                        span 即将上映
+                        i »
+                      .slide-tip
+                        span.side-index 1
+                        span &nbsp;/&nbsp;
+                        span.side-max
+                        button.slide-prev
+                        button.slide-next
+                    #screenBody.panel-body.screen-body(style="width:10000px;")
+                      if cat.movies && cat.movies.length > 0
+                        each item in cat.movies
+                          .thumbnail
+                            a(href="/movie/#{item._id}" target="_blank")
+                              if item.poster.indexOf('http:') > -1
+                                img(src="#{item.poster}", alt="#{item.title}")
+                              else
+                                img(src="/upload/movie/#{item.poster}", alt="#{item.title}")
+                            .caption
+                              h5 #{item.title}
+                              p: a.btn.btn-primary(href="/movie/#{item._id}" role="button" target="_blank") 观看预告片
+            // 选电影/选电视剧标签节点
+            #fliterMovies.fliter-movies
+              .screen
+                .class-top
+                  span.active 选电影
+                  i &nbsp;/&nbsp;
+                  span 选电视剧
+                  hr
+                  ul
+                    li
+                      button.btn.btn-primary 热门
+                    li
+                      button.btn.btn-default 最新
+                    li
+                      button.btn.btn-default 经典
+                    li
+                      button.btn.btn-default 豆瓣高分
+                    li
+                      button.btn.btn-default 冷门佳片
+                    li
+                      button.btn.btn-default 华语
+                    li
+                      button.btn.btn-default 欧美
+                    li
+                      button.btn.btn-default 韩国
+                  hr
+                // 热门电影标签节点
+                .screen-body
+                  each cat in categories
+                    if cat.name === '热门电影'
+                      .panel.panel-default
+                        #classBody.panel-body.screen-body
+                          if cat.movies && cat.movies.length > 0
+                            each item in cat.movies
+                              .col-md-3.col-xs-4
+                                .thumbnail
+                                  a(href="/movie/#{item._id}" target="_blank")
+                                    if item.poster.indexOf('http:') > -1
+                                      img(src="#{item.poster}", alt="#{item.title}")
+                                    else
+                                      img(src="/upload/#{item.poster}", alt="#{item.title}")
+                                  .caption
+                                    h5 #{item.title}
+                        //a.more(href="javascript:;" role="button") 加载更多
+            
+          // 电影院搜索标签节点
+          
+  // 电影首页JS脚本
+  script(src="/libs/scripts/js/movie/movie_index.min.js")
